@@ -23,6 +23,7 @@ dependencies = [
     "asyncpg (==0.29.0)",
     "dotenv (>=0.9.9,<0.10.0)",
     "prometheus-fastapi-instrumentator (>=7.1.0,<8.0.0)",
+    "yfinance (>=0.2.66,<0.3.0)",
 ]
 
 
@@ -39,6 +40,7 @@ black = "^24.8.0"
 flake8 = "^7.1.1"
 isort = "^5.13.2"
 pyinstaller = "^6.10.0"
+ipykernel = "^7.0.1"
 
 
 [tool.black]
