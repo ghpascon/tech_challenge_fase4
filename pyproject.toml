@@ -24,6 +24,11 @@ dependencies = [
     "dotenv (>=0.9.9,<0.10.0)",
     "prometheus-fastapi-instrumentator (>=7.1.0,<8.0.0)",
     "yfinance (>=0.2.66,<0.3.0)",
+    "pandas (>=2.3.3,<3.0.0)",
+    "numpy (>=2.3.4,<3.0.0)",
+    "scikit-learn (>=1.7.2,<2.0.0)",
+    "matplotlib (>=3.10.7,<4.0.0)",
+    "torch (>=2.9.0,<3.0.0)",
 ]
 
 
