@@ -1,0 +1,6 @@
+artifact_location: file:///g:/Meu%20Drive/pascon_ofc/_fiap_tech_challenges/tech_challenge_fase4/model_pipeline/mlruns/901996036992094380
+creation_time: 1762428979540
+experiment_id: '901996036992094380'
+last_update_time: 1762428979540
+lifecycle_stage: active
+name: lstm_stock_forecast

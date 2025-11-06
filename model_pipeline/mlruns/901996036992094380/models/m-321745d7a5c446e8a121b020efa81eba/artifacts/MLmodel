@@ -1,0 +1,25 @@
+artifact_path: file:///g:/Meu%20Drive/pascon_ofc/_fiap_tech_challenges/tech_challenge_fase4/model_pipeline/mlruns/901996036992094380/models/m-321745d7a5c446e8a121b020efa81eba/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.11.0
+  pytorch:
+    code: null
+    extra_files:
+    - path: extra_files/scaler.joblib
+    model_data: data
+    pytorch_version: 2.8.0+cpu
+mlflow_version: 3.5.1
+model_id: m-321745d7a5c446e8a121b020efa81eba
+model_size_bytes: 210512
+model_uuid: m-321745d7a5c446e8a121b020efa81eba
+prompts: null
+run_id: 6209fa0ea47942a18197a3e2b48de811
+utc_time_created: '2025-11-06 11:37:42.315813'

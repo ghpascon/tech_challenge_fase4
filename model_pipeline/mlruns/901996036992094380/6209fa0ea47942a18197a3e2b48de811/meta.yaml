@@ -1,0 +1,14 @@
+artifact_uri: file:///g:/Meu%20Drive/pascon_ofc/_fiap_tech_challenges/tech_challenge_fase4/model_pipeline/mlruns/901996036992094380/6209fa0ea47942a18197a3e2b48de811/artifacts
+end_time: 1762429071891
+entry_point_name: ''
+experiment_id: '901996036992094380'
+lifecycle_stage: active
+run_id: 6209fa0ea47942a18197a3e2b48de811
+run_name: LSTM_PETR4.SA_20251106_083632
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1762428992696
+status: 3
+tags: []
+user_id: DELL

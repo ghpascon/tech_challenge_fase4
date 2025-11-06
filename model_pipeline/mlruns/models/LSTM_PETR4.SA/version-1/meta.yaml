@@ -1,0 +1,15 @@
+creation_timestamp: 1762429070058
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1762429070058
+model_id: m-321745d7a5c446e8a121b020efa81eba
+name: LSTM_PETR4.SA
+run_id: 6209fa0ea47942a18197a3e2b48de811
+run_link: null
+source: models:/m-321745d7a5c446e8a121b020efa81eba
+status: READY
+status_message: null
+storage_location: file:///g:/Meu%20Drive/pascon_ofc/_fiap_tech_challenges/tech_challenge_fase4/model_pipeline/mlruns/901996036992094380/models/m-321745d7a5c446e8a121b020efa81eba/artifacts
+user_id: null
+version: 1
