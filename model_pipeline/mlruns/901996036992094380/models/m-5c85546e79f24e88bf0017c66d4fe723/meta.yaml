@@ -1,0 +1,10 @@
+artifact_location: file:///g:/Meu%20Drive/pascon_ofc/_fiap_tech_challenges/tech_challenge_fase4/model_pipeline/mlruns/901996036992094380/models/m-5c85546e79f24e88bf0017c66d4fe723/artifacts
+creation_timestamp: 1763646593836
+experiment_id: '901996036992094380'
+last_updated_timestamp: 1763646619477
+model_id: m-5c85546e79f24e88bf0017c66d4fe723
+model_type: null
+name: lstm_model
+source_run_id: f4ec1a4c06b34b8daab2b8c7e69d55a4
+status: 2
+status_message: null
