@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  petr4-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: petr4-prediction-api
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
+      - PYTHONPATH=/app
+    volumes:
+      # Mount logs directory for persistent logging
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/petr4/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - petr4-network
+
+networks:
+  petr4-network:
+    driver: bridge
+# Optional: Add a reverse proxy for production
+# nginx:
+#   image: nginx:alpine
+#   container_name: petr4-nginx
+#   ports:
+#     - "80:80"
+#     - "443:443"
+#   volumes:
+#     - ./nginx.conf:/etc/nginx/nginx.conf
+#   depends_on:
+#     - petr4-api
+#   networks:
+#     - petr4-network
