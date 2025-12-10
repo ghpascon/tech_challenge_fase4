@@ -102,3 +102,76 @@ class HealthCheckResponse(BaseModel):
                 "error": None
             }
         }
+
+class PETR4TrainConfig(BaseModel):
+    """Schema para treinamento do modelo de predição da ação PETR4.SA"""
+    seq_len: int = Field(
+        default=10,
+        ge=1,
+        le=20,
+        description="(1-20)"
+    )
+
+    batch_size: int = Field(
+        default=32,
+        ge=10,
+        le=64,
+        description="(10-64)"
+    )
+
+    epochs: int = Field(
+        default=100,
+        ge=10,
+        le=300,
+        description="(10-300)"
+    )
+
+    hidden_dim: int = Field(
+        default=64,
+        ge=10,
+        le=128,
+        description="(10-128)"
+    )
+
+    dropout: float = Field(
+        default=0.2,
+        ge=0.1,
+        le=0.9,
+        description="(0.1-0.9)"
+    )
+
+    lr: float = Field(
+        default=0.001,
+        ge=0.0001,
+        le=0.1,
+        description="(0.0001-0.1)"
+    )
+
+    train_ratio: float = Field(
+        default=0.7,
+        ge=0.1,
+        le=0.9,
+        description="(0.1-0.9)"
+    )
+
+    val_ratio: float = Field(
+        default=0.15,
+        ge=0.1,
+        le=0.9,
+        description="(0.1-0.9)"
+    )
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "seq_len": 10,
+                "batch_size": 32,
+                "epochs": 50,
+                "hidden_dim": 64,
+                "dropout": 0.2,
+                "lr": 0.001,
+                "train_ratio": 0.7,
+                "val_ratio": 0.15,
+                "experiment_name": "lstm_stock_forecast",
+            }
+        }

@@ -15,9 +15,10 @@ from app.services.ml.validators import (
     PETR4PredictionRequest,
     PETR4PredictionResponse, 
     ModelInfoResponse,
-    HealthCheckResponse
+    HealthCheckResponse,
+    PETR4TrainConfig
 )
-from app.services.ml.petr4_predictor import PETR4LSTMPredictor
+from app.services.ml.petr4_predictor_lit import PETR4LSTMPredictor
 
 # Configurar logging
 logger = logging.getLogger(__name__)
@@ -188,3 +189,69 @@ async def get_current_petr4_price():
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Erro ao obter preço atual"
         )
+
+@router.post("/train")
+async def train_model(request: PETR4TrainConfig):
+    """
+    Aciona o treinamento do modelo LSTM para PETR4.SA
+    
+    Executa o script de treinamento (petr4_train.py).
+    """
+    try:
+        logger.info("Iniciando treinamento do modelo PETR4")
+        
+        # Importar o módulo de treinamento
+        from app.services.ml.petr4_train import realiza_treinamento
+                
+        # Executar treinamento
+        #training_result = train_petr4_model()
+        realiza_treinamento(request.model_dump())
+
+        logger.info("Treinamento realizado com sucesso.")
+        
+        return {
+            "status": "success",
+            "message": "Treinamento do modelo realizado com sucesso",
+            "timestamp": datetime.now().isoformat()            
+        }
+        
+    except Exception as e:
+        logger.error(f"Erro no treinamento do modelo: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro ao treinar o modelo: {str(e)}"
+        )
+    
+
+@router.post("/tuning")
+async def model_tuning():
+    """
+    Aciona o tuning do modelo LSTM para PETR4.SA
+    
+    Executa o script de tuning (petr4_tuning.py).
+    """
+    try:
+        logger.info("Iniciando tuning do modelo PETR4")
+        
+        # Importar o módulo de tuning
+        from app.services.ml.petr4_tuning import realiza_tuning
+                
+        # Executar treinamento
+        #training_result = train_petr4_model()
+        realiza_tuning()
+
+        logger.info("Tuning realizado com sucesso.")
+        
+        return {
+            "status": "success",
+            "message": "Tuning do modelo realizado com sucesso",
+            "timestamp": datetime.now().isoformat()            
+        }
+        
+    except Exception as e:
+        logger.error(f"Erro no tuning do modelo: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro ao realizar tuning do modelo: {str(e)}"
+        )
+    
