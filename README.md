@@ -101,10 +101,16 @@ docker-compose up -d
 
 | Método | Endpoint | Descrição |
 |---|---|---|
+| `POST` | `/api/petr4/train` | Treinamento do modelo |
+| `POST` | `/api/petr4/tuning` | Otimização do modelo |
 | `POST` | `/api/petr4/predict` | Predição de preço futuro |
 | `GET` | `/api/petr4/health` | Status do sistema |
 | `GET` | `/api/petr4/model/info` | Informações do modelo |
 | `GET` | `/api/petr4/current-price` | Preço atual da ação |
+
+# Obs: não há um Endpoint específico para configuração porque
+# ela é feita por meio de passagem de parâmetros no formato JSON 
+# para o Endpoint de treinamento 
 
 ### 💡 **Exemplo de Uso**
 
@@ -174,7 +180,9 @@ tech_challenge_fase4/
 │   ├── 📁 routers/api/             
 │   │   └── pred.py                  # Endpoints da API
 │   ├── 📁 services/ml/             
-│   │   ├── petr4_predictor.py      # Preditor LSTM específico
+│   │   ├── petr4_predictor_lit.py   # Preditor LSTM específico
+│   │   ├── petr4_train.py           # Treinamento do modelo
+│   │   ├── petr4_tuning.py          # Otimização do modelo
 │   │   ├── validators.py            # Schemas Pydantic
 │   │   └── __init__.py             
 │   ├── 📁 core/                    # Configurações e utilitários
@@ -183,6 +191,7 @@ tech_challenge_fase4/
 ├── 📁 model_pipeline/              # Artefatos do modelo ML
 │   ├── 📁 artifacts/              
 │   │   ├── best_model.pth          # Modelo LSTM treinado
+│   │   ├── tuned_model.pth         # Modelo LSTM otimizado
 │   │   └── scaler.joblib           # Normalizador MinMax
 │   └── lstm.ipynb                  # Notebook de treinamento
 ├── 🐳 Dockerfile                   # Container Docker
@@ -199,6 +208,7 @@ tech_challenge_fase4/
 ### 🐍 **Backend**
 - **FastAPI**: Framework web assíncrono e moderno
 - **PyTorch**: Deep Learning e redes neurais LSTM
+- **Lightning**: Framework para PyTorch
 - **Scikit-learn**: Pré-processamento e normalização
 - **Pydantic v2**: Validação de dados e serialização
 - **Uvicorn**: Servidor ASGI de alta performance
